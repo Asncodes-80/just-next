@@ -14,14 +14,14 @@ const GetWhishes = async (req: NextApiRequest, res: NextApiResponse) => {
       if (query.user === undefined) {
         const list = await prisma.whishlist.findMany();
 
-        res.status(200).json({ list });
+        res.status(200).json({ whishList: list });
       } else {
         const specificUserList = await prisma.whishlist.findMany({
           where: { userId: parseInt(query.user as string) },
           orderBy: { createdAt: "desc" },
         });
 
-        res.status(200).json({ specificUserList });
+        res.status(200).json({ whishList: specificUserList });
       }
     } catch (e) {
       res.status(500).json(e);
