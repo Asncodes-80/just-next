@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "stream-consume": "tsc ./consumer.ts && node ./consumer.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
