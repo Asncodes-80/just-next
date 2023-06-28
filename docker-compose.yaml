@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  db:
+    container_name: whishlist_psql
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: whishlist 
+    ports:
+      - "2023:5432"
+  pgadmin:
+    container_name: whishlist_pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@next.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "2024:80"
